@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    background: linear-gradient(#139ba5 0%, #04322c 33.33%, #043032 66.67%, #010e0e 100%); 
+    height: 100vh;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+body::before {
+    background-image: url("img/candado.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    z-index: -1;
+}
+.container {
+    width: 700px;
+    min-height: 50vh;
+    border-radius: 24px;
+    border: 1px solid #0a8797;
+    background-image: url("img/Ruido.png");
+    background-size: cover;
+    filter: sepia(50%);
+    box-shadow: 4px 4px 10px 0px rgba(1, 8, 14, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 3em;
+}
+h1 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+.container__texto-verde {
+    color: #60ddee;
+    display: block;
+    font-size: 1.7em;
+}    
+.container__campo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: end;
+    font-size: 1.1em;
+}
+input {
+    width: 250px;/********/
+    padding: 8px 5px 8px 15px;
+    font-size: inherit;
+    border-radius: 8px;
+    color: rgb(33, 158, 167);
+    font-weight: bold;
+}
+/*--------------------------------*/
+#checkCE,  #checkCN {
+    visibility: hidden;
+}
+.checkmark {
+    cursor: pointer;
+    position: absolute;
+    background-color: rgb(122, 202, 206);
+    border-radius: 6px;
+    width: 35px;
+    height: 30px;
+    right: 250px;/********/
+}
+.checkmark:hover {
+    background-color: rgb(78, 157, 161);
+}
+.checkmark::after {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 3px;
+    width: 10px;
+    height: 15px;
+    border: solid white;
+    background-color: rgb(21, 145, 151);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    display: none;
+}
+#checkCE:checked ~ .checkmark::after, 
+#checkCN:checked ~ .checkmark::after {
+    display: block;
+}
+#checkCE:checked ~ .checkmark,
+#checkCN:checked ~ .checkmark {
+    background-color: rgb(21, 145, 151);
+}
+/*--------------------------------*/
+.boton {
+    width: 250px;/********/
+    font-size: 1em;
+    border: none;
+    background-color: rgb(21, 145, 151);
+    border-radius: 10px;
+    padding: 0.7em 0; 
+    margin: 1em 0;
+    box-shadow: 4px 4px 10px 0px rgba(1, 8, 14, 1);
+    cursor: pointer;
+}
+.peq {
+    width: 120px;
+    font-size: 0.8em;
+    padding: 0.5em;
+    margin: 1em 0;
+    border-radius: 5px;
+}
+#copiar {
+    background-color: rgb(38, 81, 199)
+}
+#borrar {
+    background-color: rgb(197, 19, 19)
+}
+.boton:hover {
+    filter: contrast(180%);
+}
+#mensaje {
+    color: rgb(224, 17, 17);
+    font-weight: bolder;
+    font-size: 0.8em;
+}
+@media screen and (max-width: 760px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 90%;
+    }
+    input {
+        width: 180px;
+    }
+    .checkmark {
+        right: 180px;
+    }
+    .boton {
+        width: 180px;
+    }
+    .peq {
+        width: 87px;
+    }        
+}
